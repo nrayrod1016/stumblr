@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .models import Post
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # Create your views here.
 
@@ -9,12 +11,21 @@ def home(request):
 def about(request): 
   return render(request, 'about.html')
 
-def posts_index(request): 
-  return render(request, 'posts/index.html', )
-  #  { 'posts': posts}
+def posts_index(request):
+  posts = Post.objects.all() 
+  return render(request, 'posts/index.html', { 'posts': posts} )
+ 
 
 
-def posts_detail(request): 
-  return render(request, 'posts/detail.html')
+def posts_detail(request, post_id): 
+  post = Post.objects.get(id=post_id)
+  return render(request, 'posts/detail.html', { 'post': post})
 
-  
+
+class PostCreate(CreateView): 
+  model = Post
+  fields = ['title', 'author', 'content', 'create_time,' ]
+
+  def form_valid(self, form): 
+    form.instance.user = self.request.user
+    return super().form_valid(form)

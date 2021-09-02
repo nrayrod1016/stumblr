@@ -1,13 +1,40 @@
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Techspace</title>
-</head>
-<body>
-  <h1>Posts</h1>
-  
-</body>
-</html>
+
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/cat-index.css' %}"/>
+{% endblock %}
+
+{% block content %}
+  <!-- Alert Box -->
+<h1 class=" text-center mt-10 mb-10"> Posts-Index Page</h1>
+
+
+<section class="card-container ml-5">
+  {% for post in posts %}
+    <div class="card">
+     <a href="{% url 'posts_detail' post.id %}">
+      <div class="card-content">
+        <div class="card-img-container">
+          <img 
+            src="{% static 'images/sk8r-boi-cat.svg' %}" 
+            alt="A skater boy cat"
+          >
+        </div>
+        <h2 class="card-title">{{ post.title }}</h2>
+        {% if post.create_time > 0 %}
+          <p>Post was created at {{ post.create_time }}.</p>
+        {% else %}
+          <p>A {{ post.content }} .</p>
+        {% endif %}
+        <p><small>{{ post.author }}</small></p>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+
+
+{% endblock %}
