@@ -24,8 +24,16 @@ def posts_detail(request, post_id):
 
 class PostCreate(CreateView): 
   model = Post
-  fields = ['title', 'author', 'content', 'create_time,' ]
+  fields = ['title', 'author', 'content' ]
 
   def form_valid(self, form): 
     form.instance.user = self.request.user
     return super().form_valid(form)
+
+class PostUpdate(UpdateView): 
+  model = Post 
+  fields = ['title', 'author', 'content', ]
+
+class PostDelete(DeleteView): 
+  model = Post 
+  success_url = '/posts/' 
