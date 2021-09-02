@@ -20,12 +20,20 @@
   </div>
   <div class="cat-details">
     <h1>{{ post.title }}</h1>
-    {% if cat.age > 0 %}
+    {% if post.create_time > 0 %}
       <h2>Post was created at {{ post.create_time }}.</h2>
     {% else %}
       <h2>{{ post.content }}</h2>
     {% endif %}
     <p>{{ post.author }}</p>
+
+     <p>{{ cat.description }}</p>
+    <section> 
+    <div class="cat-actions">
+      <a href="{% url 'posts_update' post.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'posts_delete' post.id %}" class="btn danger">Delete</a>
+    </div>
+  </section>
   </div>
 </section>
 
