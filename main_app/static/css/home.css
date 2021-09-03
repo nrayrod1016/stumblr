@@ -86,3 +86,7 @@ main > section {
 } */
 
 
+.login input {
+  font-size: var(--font-l);
+  padding: 2px 4px;
+}

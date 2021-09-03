@@ -2,18 +2,18 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-{% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"/> {% endcomment %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"/> 
 {% endblock %}
 {% block content %}
   <!-- Alert Box -->
  
 <section>
-  <form action="{% url 'home' %}" method="post" class="login">
-    <h1>LoginForm</h1>
+  <form action="{% url 'home' %}" method="post" class="login text-center">
+    <h1 class="text-2xl">LoginForm</h1>
     {% csrf_token %}
-    {{ form.as_p }}
+    <div class='m-10' >{{ form.as_p }}<div> 
     <input class=" w-10" type="hidden" name="next" value="{{ next }}">
-    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline  submit">Login</button>
+    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline  submit">Login</button>
   </form>
 </section>
 
