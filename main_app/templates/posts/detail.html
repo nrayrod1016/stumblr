@@ -16,21 +16,54 @@
       <a href="{% url 'posts_delete' post.id %}" class="button">Delete</a>
     </div>
     </div>
+    <div class="feedings-toy-container">
+  <section class="feedings text-center m-5">
+    {% comment %} <div class="subsection-title">
+      <h2>Comments Section</h2>
+    </div>
+      <h3>Post a comment</h3>
+    <form
+      method="post" 
+      class="subsection-content"
+    >
+      {% csrf_token %}
+      {{ comment_form.as_p }}
+      <button type="submit" class="btn submit m-5 outline text-red-500 shadow-lg p-5 hover:ring-2">Add Comment</button>
+    </form> {% endcomment %}
+    <h3 class="text-center "> Comments Section{{ comment.count }} </h3>
+
 
   </div>
 </div>
-{% comment %} <div class="container ml-10">
-  <div class="row">
-    <div class="col-md-8 card mb-4  mt-3 left  top">
-      <div class="card-body">
-        <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
-        <p class=" text-muted">{{ post.author }} | {{ post.create_time }}</p>
-        <p class="card-text ">{{ post.content | safe }}</p>
-      </div>
-    </div>
-    {% comment %} {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %} {% endcomment %}
+   {% for comment in comments %}
+        <div class="comments" >
+          <p class="font-weight-bold">
+            {{ comment.title }}
+            <span class=" text-muted font-weight-normal">
+              {{ comment.create_time}}
+            </span>
+          </p>
+          {{ comment.content | linebreaks }}
+        </div>
+        {% endfor %}
   </div>
 </div> 
+<div class="col-md-8 card mb-4  mt-3 ">
+      <div class="card-body">
+        {% if new_comment %}
+        <div class="alert alert-success" role="alert">
+          Your comment is awaiting moderation
+        </div>
+        {% else %}
+        <h3>Leave a comment</h3>
+        <form method="pos">
+          {{ comment_form.as_p }}
+          {% csrf_token %}
+          <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+        </form>
+        {% endif %}
+      </div>
+    </div>
 
 {% endblock content %}
 
@@ -78,3 +111,13 @@
 
 {% comment %} 
 {% endblock %} {% endcomment %} 
+{% comment %} <div class="container ml-10">
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 left  top">
+      <div class="card-body">
+        <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
+        <p class=" text-muted">{{ post.author }} | {{ post.create_time }}</p>
+        <p class="card-text ">{{ post.content | safe }}</p>
+      </div>
+    </div>
+    {% comment %} {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %} {% endcomment %}

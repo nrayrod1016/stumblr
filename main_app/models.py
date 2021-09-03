@@ -35,7 +35,7 @@ class Post(models.Model):
 
 class Comment(models.Model): 
   post = models.ForeignKey(Post,on_delete=models.CASCADE,name='comments')
-  author = models.CharField(max_length=80)
+  title = models.CharField(max_length=80)
   content = models.TextField()
   create_time = models.DateTimeField(auto_now_add=True)
   active = models.BooleanField(default=False)
@@ -44,4 +44,4 @@ class Comment(models.Model):
     ordering = ['create_time']
 
   def __str__(self): 
-    return 'Comment {} by {}'.format(self.body, self.author)
+     return 'Comment {} by {}'.format(self.content, self.title)

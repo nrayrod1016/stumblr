@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect 
+from django.shortcuts import render, redirect,get_object_or_404 
 from .models import Post
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views import generic 
@@ -41,13 +41,18 @@ class PostDelete(DeleteView):
   success_url = '/posts/' 
   
 
-def comment(request, post_id): 
+def add_comment(request, post_id):
+  post = get_object_or_404(Post)
+  comments = post.comments.filter(active=True) 
+  new_comment = None 
   form = CommentForm(request.POST)
   if form.is_valid(): 
     new_comment = form.save(commit=False)
-    new_comment.post_id = post_id
+    new_comment.post = post_id
     new_comment.save() 
-  return redirect('post_detail', post_id=post_id)
+  else: 
+    form = CommentForm() 
+  return render(request, 'post_detail', {"post_id": post_id, 'comments': comments, 'new_comment': new_comment, 'form': form})
   
 
 
