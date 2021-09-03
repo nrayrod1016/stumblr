@@ -40,6 +40,9 @@ class Comment(models.Model):
   create_time = models.DateTimeField(auto_now_add=True)
   active = models.BooleanField(default=False)
 
+
+  post = models.ForeignKey(Post, on_delete=models.CASCADE)
+
   class Meta: 
     ordering = ['create_time']
 

@@ -21,6 +21,7 @@ def posts_index(request):
 def posts_detail(request, post_id): 
   post = Post.objects.get(id=post_id)
   comment_form = CommentForm() 
+
   return render(request, 'posts/detail.html', { 'post': post, 'comment_form': comment_form})
 
 
@@ -52,7 +53,7 @@ def add_comment(request, post_id):
     new_comment.save() 
   else: 
     form = CommentForm() 
-  return render(request, 'post_detail', {"post_id": post_id, 'comments': comments, 'new_comment': new_comment, 'form': form})
+  return render('posts_detail', post_id = post_id)
   
 
 
