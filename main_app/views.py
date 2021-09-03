@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect 
 from .models import Post
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views import generic 
-
+from .forms import CommentForm 
 # Create your views here.
 
 def home(request): 
@@ -20,7 +20,8 @@ def posts_index(request):
 
 def posts_detail(request, post_id): 
   post = Post.objects.get(id=post_id)
-  return render(request, 'posts/detail.html', { 'post': post})
+  comment_form = CommentForm() 
+  return render(request, 'posts/detail.html', { 'post': post, 'comment_form': comment_form})
 
 
 class PostCreate(CreateView): 
@@ -38,6 +39,16 @@ class PostUpdate(UpdateView):
 class PostDelete(DeleteView): 
   model = Post 
   success_url = '/posts/' 
+  
+
+def comment(request, post_id): 
+  form = CommentForm(request.POST)
+  if form.is_valid(): 
+    new_comment = form.save(commit=False)
+    new_comment.post_id = post_id
+    new_comment.save() 
+  return redirect('post_detail', post_id=post_id)
+  
 
 
 # class PostList(generic.ListView): 

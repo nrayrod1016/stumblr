@@ -11,6 +11,10 @@
         <p class="card-text mt-3 mb-3">{{ post.content | safe }}</p>
         <p class=" text-sm"> Created On: {{ post.create_time }}</p>
       </div>
+      <div class="cat-actions">
+      <a href="{% url 'posts_update' post.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'posts_delete' post.id %}" class="button">Delete</a>
+    </div>
     </div>
 
   </div>
