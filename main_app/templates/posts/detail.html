@@ -56,7 +56,10 @@
         </div>
         {% else %}
         <h3>Leave a comment</h3>
-        <form method="post">
+        <form 
+        method="post"
+        action={% url 'add_comment' post.id %}
+        >
           {{ comment_form.as_p }}
           {% csrf_token %}
           <button type="submit" class="btn btn-primary  btn-lg">Submit</button>

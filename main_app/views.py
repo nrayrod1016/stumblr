@@ -43,17 +43,18 @@ class PostDelete(DeleteView):
   
 
 def add_comment(request, post_id):
-  post = get_object_or_404(Post)
-  comments = post.comments.filter(active=True) 
+  # post = get_object_or_404(Post)
+  # 
+  # comments = Post.comments.filter(active=True) 
   new_comment = None 
   form = CommentForm(request.POST)
   if form.is_valid(): 
     new_comment = form.save(commit=False)
-    new_comment.post = post_id
+    new_comment.post_id = post_id
     new_comment.save() 
   else: 
     form = CommentForm() 
-  return render('posts_detail', post_id = post_id)
+  return redirect('posts_detail', post_id=post_id)
   
 
 
