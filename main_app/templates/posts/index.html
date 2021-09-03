@@ -9,20 +9,14 @@
 
 {% block content %}
   <!-- Alert Box -->
-<h1 class=" text-center mt-10 mb-10"> Posts-Index Page</h1>
+<h1 class=" text-center text-2xl font-bold  mt-10 mb-10"> Posts-Index Page</h1>
 
 
-<section class="card-container ml-5">
+<section class="card-container ml-5 grid grid-rows-3 grid-flow-col gap-10 ">
   {% for post in posts %}
-    <div class="card">
+    <div class="card flex-wrap">
      <a href="{% url 'posts_detail' post.id %}">
       <div class="card-content">
-        <div class="card-img-container">
-          <img 
-            src="{% static 'images/sk8r-boi-cat.svg' %}" 
-            alt="A skater boy cat"
-          >
-        </div>
         <h2 class="card-title">{{ post.title }}</h2>
         {% if post.create_time > 0 %}
           <p>Post was created at {{ post.create_time }}.</p>

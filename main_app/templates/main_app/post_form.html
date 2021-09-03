@@ -8,21 +8,25 @@
 
 {% block content %}
 
+		
+	
 <div class='page-header'>
 {% if object %}
   <h1>Edit {{ object.title }}</h1>
 {% else %}
   <h1>Add a Post</h1>
 {% endif %}
-  <img src="{% static 'images/nerd-cat.svg' %}" alt="A cat using a computer"/>
 </div>
 
-<form action="" method='post' class='form-container'>
-  {% csrf_token %}
+  <form action="" method='post' class='form-container'>
+    {% csrf_token %}
   <table>
-    {{form.as_table}}
+  {{form.as_table}}
+      
   </table>
   <button type="submit" class="btn submit">Submit!</button>
-</form>
-
+  </form>
+    
+	</div>
+</div>
 {% endblock %}
