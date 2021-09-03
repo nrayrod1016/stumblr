@@ -1,4 +1,38 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
+{% load static %}
+<h1 class="text-center">POST DETAIL PAGE </h1> 
+<div class="container shadow-xl mb-2">
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 left  top">
+      <div class="card-body">
+        <h1 class="text-xl">{% block title %} {{ post.title }} {% endblock title %}</h1>
+        {% comment %} <p class="card-text ">{{ post.create | safe }}</p> {% endcomment %}
+        <p class=" text-muted">Written By: {{ post.author }} | </p> 
+        <p class="card-text mt-3 mb-3">{{ post.content | safe }}</p>
+        <p class=" text-sm"> Created On: {{ post.create_time }}</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% comment %} <div class="container ml-10">
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 left  top">
+      <div class="card-body">
+        <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
+        <p class=" text-muted">{{ post.author }} | {{ post.create_time }}</p>
+        <p class="card-text ">{{ post.content | safe }}</p>
+      </div>
+    </div>
+    {% comment %} {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %} {% endcomment %}
+  </div>
+</div> 
+
+{% endblock content %}
+
+
+
+{% comment %} {% extends 'base.html' %}
 {% load static %}
 
 {% block head %}
@@ -17,7 +51,7 @@
       src="{% static 'images/sk8r-boi-cat.svg' %}" 
       alt="A skater boy cat"
     > {% endcomment %}
-  </div>
+  {% comment %} </div>
   <div class="cat-details">
     <h1>{{ post.title }}</h1>
     {% if post.create_time > 0 %}
@@ -36,7 +70,7 @@
   </section>
   </div>
 </section>
+ {% endcomment %}
 
-
-
-{% endblock %}
+{% comment %} 
+{% endblock %} {% endcomment %} 

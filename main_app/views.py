@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Post
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views import generic 
 
 # Create your views here.
 
@@ -37,3 +38,9 @@ class PostUpdate(UpdateView):
 class PostDelete(DeleteView): 
   model = Post 
   success_url = '/posts/' 
+
+
+# class PostList(generic.ListView): 
+#   model = Post 
+#   queryset = Post.ojects.filter(status=1).order_by('create_time')
+#   template_name = 'home.html'

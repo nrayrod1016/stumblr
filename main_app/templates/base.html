@@ -26,14 +26,20 @@
    {% comment %} enter logo {% endcomment %}
       </a>
     </div>
+
+
+    <section> 
     <nav>
       <ul>
-        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a class =" text-indigo-500" href="{% url 'about' %}">About</a></li>
         <li><a href="{% url 'posts_index' %}">All Posts</a></li>
-         <li><a href="{% url 'posts_create' %}">Add A Post</a></li>
+        <li><a href="{% url 'posts_create' %}">Add A Post</a></li>
+        <li><a href="">Boards</a></li>
 
       </ul>
     </nav>
+    </section> 
   </header>
   <main>
     {% block content %}
