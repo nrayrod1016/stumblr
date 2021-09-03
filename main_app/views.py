@@ -4,6 +4,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views import generic 
 from .forms import CommentForm 
 # Create your views here.
+from django.contrib.auth.views import LoginView 
+
 
 def home(request): 
   return render(request, 'home.html')
@@ -56,9 +58,6 @@ def add_comment(request, post_id):
     form = CommentForm() 
   return redirect('posts_detail', post_id=post_id)
   
+class Home(LoginView): 
+  template_name = 'home.html'
 
-
-# class PostList(generic.ListView): 
-#   model = Post 
-#   queryset = Post.ojects.filter(status=1).order_by('create_time')
-#   template_name = 'home.html'

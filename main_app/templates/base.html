@@ -28,16 +28,37 @@
     </div>
 
 
-    <section> 
+  <section> 
     <nav>
- <div class="md:flex items-center" :class="isOpen ? 'block' : 'hidden'">
+    {% if user.is_authenticated %}
+      <div class="md:flex items-center" :class="isOpen ? 'block' : 'hidden'">
         <div class="flex flex-col mt-2 md:flex-row md:mt-0 md:mx-1">
-          <a class="my-1 text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline md:mx-4 md:my-0" href="/">Home</a>
-           <a class="my-1 text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline md:mx-4 md:my-0" href="/about">About</a>
-          <a class="my-1 text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline md:mx-4 md:my-0" href="{% url 'posts_index' %}">Posts</a>
-          <a class="my-1 text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline md:mx-4 md:my-0" href="{% url 'posts_create' %}">Create A Post</a>
-           <a class="my-1 text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline md:mx-4 md:my-0" href="">Boards</a>
+          <a class="my-1 text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline md:mx-4 md:my-0" 
+          href="/">
+          Home
+          </a>
+          <a class="my-1 text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline md:mx-4 md:my-0" href="/about">
+          About
+          </a>
+          <a class="my-1 text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline md:mx-4 md:my-0" href="{% url 'posts_index' %}">
+          Posts
+          </a>
+          <a class="my-1 text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline md:mx-4 md:my-0" href="{% url 'posts_create' %}">
+          Create A Post
+          </a>
+          <a class="my-1 text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline md:mx-4 md:my-0" href="{% url 'logout' %}">
+          Log out
+          </a>
+          {% else%}
+          <a class="my-1 text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline md:mx-4 md:my-0" href="{% url 'about' %}">
+          About
+          </a>
+          <a class="my-1 text-sm text-gray-700 leading-5 hover:text-blue-600 hover:underline md:mx-4 md:my-0" href="{% url 'home' %}">
+          Login
+          </a>
         </div>
+      </div>
+          {% endif %}
     </nav>
     </section> 
   </header>
@@ -50,4 +71,5 @@
   </div> 
   </div>
 </body>
+
 </html>

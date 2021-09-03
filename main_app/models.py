@@ -30,7 +30,7 @@ class Post(models.Model):
   def get_absolute_url(self): 
     return reverse('posts_detail', kwargs={'post_id': self.id})
 
-
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class Comment(models.Model): 

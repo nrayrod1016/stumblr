@@ -2,10 +2,19 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"/>
+{% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"/> {% endcomment %}
 {% endblock %}
 {% block content %}
   <!-- Alert Box -->
-<h1> Home page </h1> 
+ 
+<section>
+  <form action="{% url 'home' %}" method="post" class="login">
+    <h1>LoginForm</h1>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class=" w-10" type="hidden" name="next" value="{{ next }}">
+    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline  submit">Login</button>
+  </form>
+</section>
 
   {% endblock %}
