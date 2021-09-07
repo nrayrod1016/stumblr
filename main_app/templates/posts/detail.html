@@ -7,11 +7,12 @@
 <div class="container text-white mx-auto w-full bg-gray-400 bg-opacity-75 rounded-lg p-6 md:flex w-full shadow-2xl">
   <div class="row">
     <div class="col-md-8 card mb-4  mt-3 left  top">
-      <div class="card-body">
+      <div class="card-body text-center lg:m-12">
         <h1 class="text-xl text-center">{% block title %} {{ post.title }} {% endblock title %}</h1>
         {% comment %} <p class="card-text ">{{ post.create | safe }}</p> {% endcomment %}
-        <p class=" ">Written By: {{ post.author }} | </p> 
+        {% comment %} <p class=" ">Written By: {{ post.author }} | </p>  {% endcomment %}
         <p class="card-text mt-3 mb-3 flex-wrap">{{ post.content | safe }}</p>
+        <p class=" ">Written By: {{ post.author }} | </p> 
         <p class=" text-sm"> Created On: {{ post.create_time }}</p>
       </div>
       <div class="cat-actions text-center">
