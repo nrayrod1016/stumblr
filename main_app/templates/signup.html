@@ -13,7 +13,7 @@
 {% if error_message %}
   <p class="red-text">{{ error_message }}</p>
 {% endif %}
-<form action="" method="post" class="form-container text-center" autocomplete="off">
+<form action="" method="post" class="form-container text-center text-gray-300" autocomplete="off">
   {% csrf_token %}
   <table>
     {{ form.as_table }}

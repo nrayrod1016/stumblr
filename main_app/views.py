@@ -86,9 +86,11 @@ def signup(request):
 
 def profile_detail(request, profile_id): 
   profile = Profile.objects.get(id=profile_id)
+  # posts = Post.objects.all()
+  # posts = Post.objects.filter(author=request.user)
+  posts = Post.objects.filter(author=profile.id)
 
-
-  return render(request, 'profile_detail.html', {'profile': profile})
+  return render(request, 'profile_detail.html', {'profile': profile, 'posts': posts})
 
 # class Profile(DetailView): 
 #    template_name = 'users/profile.html'

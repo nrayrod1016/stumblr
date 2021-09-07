@@ -6,10 +6,9 @@
 
 <h1>SANITY</h1> 
   <!-- Alert Box -->
-{% comment %} {% for post in posts %}
-     <a href="">
-       <img src="{{ post.image.url }}" alt="">
-    </a>
-{% endfor %} {% endcomment %}
+{% for post in posts %}
+<h1 class="text-white">{{ post.author }}</h1>
+  <p class="text-white ">{{ post.content }}</p>
+{% endfor %} 
 
 {% endblock %}
