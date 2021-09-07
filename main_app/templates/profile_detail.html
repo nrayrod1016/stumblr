@@ -23,7 +23,7 @@
       <p class="block text-lg sm:text-xl text-justify">
     Bio: Gubergren erat et rebum et accusam, est et erat duo elitr eirmod invidunt ipsum. Amet dolore lorem ipsum sed, aliquyam kasd sit sit dolor invidunt, sea labore sit justo et kasd sadipscing at stet diam, invidunt consetetur diam aliquyam vero dolor. Amet ipsum invidunt consetetur erat et stet sed lorem,.
       </p>  
-      <button class="rounded-lg p-2 bg-red-400 "> <a  class="block sm:flex-1 text-xl sm:text-2xl  text-white"
+      <button class="rounded-lg p-2 mt-3 bg-red-400 "> <a  class="block sm:flex-1 text-xl sm:text-2xl  text-white"
           href="mailto:nickrrodriguez@gmail.com">
          Email me!
         </a></button>
@@ -38,7 +38,7 @@
 
 <section class="card-container mx-auto px20 ml-5 flex flex-col  ">
 <div class="min-h-screen flex items-center justify-center ">
-  <div class="container mx-auto px-20">
+  <div class="container overflow-hidden mx-auto px-20">
     {% for post in posts %}
     <div class="bg-white  mb-5 p-8  relative transform  hover:scale-105 transition duration-300 shadow-xl rounded-lg col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
     <a href="{% url 'posts_detail' post.id %}">
@@ -48,7 +48,7 @@
         Post was created at {{ post.create_time }}.</p>
      
       {% else %}
-       <p class="text-gray-600 leading-6 tracking-normal">{{ post.content }}</p> 
+       <p class="text-gray-600 leading-6 tracking-normal overflow-y-auto">{{ post.content }}</p> 
        <p class="text-gray-600 leading-6 tracking-normal">
         Post was created at {{ post.create_time }}.</p>
         {% endif %}
