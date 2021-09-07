@@ -10,17 +10,17 @@
 
 		
 	
-<div class='page-header'>
+<div class='page-header h-full bg-gray-800'>
 {% if object %}
   <h1>Edit {{ object.title }}</h1>
 {% else %}
   <h1 class="text-center text-white text-xl m-5">Add a Post</h1>
 {% endif %}
 </div>
-<section class="content-center"> 
-  <form action="" method='post' class='form-container text-center bg-gray-800'>
+<section class="center mb-20 bg-gray-800"> 
+  <form action="" method='post' class='form-container text-center  content-center bg-gray-800 '>
     {% csrf_token %}
-  <table class="text-white text-center">
+  <table class="text-gray-400 text-center">
   {{form.as_table}}
       
   </table>

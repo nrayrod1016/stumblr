@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 {% load static %}
 <hr/>
-<section class="bg-gray-800"> 
+<section class="bg-gray-800 min-h-screen"> 
 <h1 class="text-center text-white text-xl m-5">POST DETAIL PAGE </h1> 
 <section> 
 <div class="container text-white mx-auto w-full bg-gray-400 bg-opacity-75 rounded-lg p-6 md:flex w-full shadow-2xl">
@@ -20,13 +20,11 @@
     </div>
     </div>
     </section> 
-    <div class="feedings-toy-container">
-  <section class="feedings text-center m-5">
+  <div class="feedings-toy-container">
+    <section class="feedings text-center mt-5">
 
     <h3 class="text-center text-white text-xl"> Comments Section{{ comment.count }} </h3>
 
-
-  </div>
 
 </div> 
 <div class="col-md-8 card mb-4  mt-3 ">
@@ -42,7 +40,7 @@
         method="post"
         action={% url 'add_comment' post.id %}
         >
-        <div class="text-white "> 
+        <div class="text-gray-400 "> 
           {{ comment_form.as_p }}
           </div>
           {% csrf_token %}
@@ -56,11 +54,12 @@
 
 
 {% for comment in post.comment_set.all %}
+<div class="bg-gray-800">
 <section class="card-container mx-auto px20 ml-5 flex flex-col ">
-<div class="comments flex flex wrap items-center justify-center">
-  <div class="container mx-auto px-20">
+<div class="comments flex flex-wrap items-center justify-center">
+  <div class="container mx-auto  px-20">
 
-    <div class=" mb-5 p-8 rounded-lg shadow-lg relative hover:shadow-3xl transition-shadow duration-500">
+    <div class=" mb-5 p-8 bg-white rounded-lg shadow-lg relative hover:shadow-3xl transition-shadow duration-500">
       <h1 class="text-2xl text-gray-800 font-semibold mb-3">{{ comment.title }}</h1>
        <p class="text-gray-600 leading-6 tracking-normal flex flex-wrap overflow-ellipsis">{{ comment.content | linebreaks }}</p> 
        <p class="text-gray-600 leading-6 tracking-normal">
@@ -75,7 +74,10 @@
 </div>
       {% endfor %}
 </section>
+</div>
+
 </section> 
+  </div>
 {% endblock content %}
 
 
