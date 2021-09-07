@@ -1,52 +1,33 @@
 {% extends 'base.html' %} {% block content %}
 {% load static %}
-<h1 class="text-center">POST DETAIL PAGE </h1> 
-<div class="container shadow-xl mb-2">
+<hr/>
+<section class="bg-gray-800"> 
+<h1 class="text-center text-white text-xl m-5">POST DETAIL PAGE </h1> 
+<section> 
+<div class="container text-white mx-auto w-full bg-gray-400 bg-opacity-75 rounded-lg p-6 md:flex w-full shadow-2xl">
   <div class="row">
     <div class="col-md-8 card mb-4  mt-3 left  top">
       <div class="card-body">
-        <h1 class="text-xl">{% block title %} {{ post.title }} {% endblock title %}</h1>
+        <h1 class="text-xl text-center">{% block title %} {{ post.title }} {% endblock title %}</h1>
         {% comment %} <p class="card-text ">{{ post.create | safe }}</p> {% endcomment %}
-        <p class=" text-muted">Written By: {{ post.author }} | </p> 
-        <p class="card-text mt-3 mb-3">{{ post.content | safe }}</p>
+        <p class=" ">Written By: {{ post.author }} | </p> 
+        <p class="card-text mt-3 mb-3 flex-wrap">{{ post.content | safe }}</p>
         <p class=" text-sm"> Created On: {{ post.create_time }}</p>
       </div>
-      <div class="cat-actions">
+      <div class="cat-actions text-center">
       <a href="{% url 'posts_update' post.id %}" class="btn warn">Edit</a>
       <a href="{% url 'posts_delete' post.id %}" class="button">Delete</a>
     </div>
     </div>
+    </section> 
     <div class="feedings-toy-container">
   <section class="feedings text-center m-5">
-    {% comment %} <div class="subsection-title">
-      <h2>Comments Section</h2>
-    </div>
-      <h3>Post a comment</h3>
-    <form
-      method="post" 
-      class="subsection-content"
-    >
-      {% csrf_token %}
-      {{ comment_form.as_p }}
-      <button type="submit" class="btn submit m-5 outline text-red-500 shadow-lg p-5 hover:ring-2">Add Comment</button>
-    </form> {% endcomment %}
-    <h3 class="text-center "> Comments Section{{ comment.count }} </h3>
+
+    <h3 class="text-center text-white text-xl"> Comments Section{{ comment.count }} </h3>
 
 
   </div>
-</div>
-   {% for comment in post.comment_set.all %}
-        <div class="comments" >
-          <p class="font-weight-bold">
-            {{ comment.title }}
-            <span class=" text-muted font-weight-normal">
-              {{ comment.create_time}}
-            </span>
-          </p>
-          {{ comment.content | linebreaks }}
-        </div>
-        {% endfor %}
-  </div>
+
 </div> 
 <div class="col-md-8 card mb-4  mt-3 ">
       <div class="card-body">
@@ -55,19 +36,46 @@
           Your comment is awaiting moderation
         </div>
         {% else %}
-        <h3>Leave a comment</h3>
+        <h3 class="text-center text-white">Leave a comment</h3>
         <form 
+        class="text-center break-words  "
         method="post"
         action={% url 'add_comment' post.id %}
         >
+        <div class="text-white "> 
           {{ comment_form.as_p }}
+          </div>
           {% csrf_token %}
-          <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+          <button type="submit" class="bg-red-500 hover:bg-red-700 text-white content-center font-bold mt-2 py-2 px-2 rounded focus:outline-none focus:shadow-outline">Submit</button>
         </form>
         {% endif %}
       </div>
     </div>
 
+    </div>
+
+
+{% for comment in post.comment_set.all %}
+<section class="card-container mx-auto px20 ml-5 flex flex-col ">
+<div class="comments flex flex wrap items-center justify-center">
+  <div class="container mx-auto px-20">
+
+    <div class=" mb-5 p-8 rounded-lg shadow-lg relative hover:shadow-3xl transition-shadow duration-500">
+      <h1 class="text-2xl text-gray-800 font-semibold mb-3">{{ comment.title }}</h1>
+       <p class="text-gray-600 leading-6 tracking-normal flex flex-wrap overflow-ellipsis">{{ comment.content | linebreaks }}</p> 
+       <p class="text-gray-600 leading-6 tracking-normal">
+        Comment was created at {{ comment.create_time }}.</p>
+  <button class="py-2 px-4 mt-8 bg-red-500 text-white rounded-md shadow-xl">{{ comment.author }}</button>
+      <div>
+        <span class="absolute py-2 px-8 text-sm text-white top-0 right-0 bg-red-500 rounded-md transform translate-x-2 -translate-y-3 shadow-xl">New</span>
+      </div>
+      
+    </div>
+  </div>
+</div>
+      {% endfor %}
+</section>
+</section> 
 {% endblock content %}
 
 

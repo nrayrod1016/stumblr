@@ -14,19 +14,19 @@
 {% if object %}
   <h1>Edit {{ object.title }}</h1>
 {% else %}
-  <h1>Add a Post</h1>
+  <h1 class="text-center text-white text-xl m-5">Add a Post</h1>
 {% endif %}
 </div>
-
-  <form action="" method='post' class='form-container'>
+<section class="content-center"> 
+  <form action="" method='post' class='form-container text-center bg-gray-800'>
     {% csrf_token %}
-  <table>
+  <table class="text-white text-center">
   {{form.as_table}}
       
   </table>
-  <button type="submit" class="btn submit">Submit!</button>
+  <button type="submit" class="bg-red-500 hover:bg-red-700 text-white content-center font-bold mt-2 py-2 px-2 rounded focus:outline-none focus:shadow-outline">Submit!</button>
   </form>
-    
+</section> 
 	</div>
 </div>
 {% endblock %}

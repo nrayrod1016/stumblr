@@ -48,3 +48,16 @@ class Comment(models.Model):
 
   def __str__(self): 
      return 'Comment {} by {}'.format(self.content, self.title)
+
+class Profile(models.Model): 
+ 
+  user = models.OneToOneField('auth.user',on_delete=models.CASCADE)
+ 
+
+  def __str__(self): 
+    return self.user.username
+       
+
+  def get_absolute_url(self):
+      return reverse("profile", kwargs={"profile_id": self.id})
+  

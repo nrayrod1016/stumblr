@@ -1,13 +1,14 @@
 from django.contrib.auth import login 
 from django.contrib.auth.forms import UserCreationForm 
 from django.shortcuts import render, redirect,get_object_or_404 
-from .models import Post
+from .models import Post, Profile 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import DetailView
 from django.views import generic 
 from .forms import CommentForm 
 # Create your views here.
 from django.contrib.auth.views import LoginView 
-
+from django.contrib.auth.models import User 
 def home(request): 
   return render(request, 'home.html')
 
@@ -81,3 +82,30 @@ def signup(request):
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'signup.html', context)
+
+
+def profile_detail(request, profile_id): 
+  profile = Profile.objects.get(id=profile_id)
+
+
+  return render(request, 'profile_detail.html', {'profile': profile})
+
+# class Profile(DetailView): 
+#    template_name = 'users/profile.html'
+#    queryset = User.objects.all()
+
+
+#    def get_object(self): 
+#      id_ = self.kwargs.get('username')
+#      user = get_object_or_404(User, username=id_)
+#      posts = user.posts.all().filter(order_by('-create_time')) 
+#      return user 
+
+
+  #  def get_context_data(self, *args, **kwargs):
+  #    context = super(Profile,self).get_context_data(*args, **kwargs)
+  #    user = self.get_object()
+  #    context.update({
+  #    'posts' : user.posts.all().filter(create_time__lte=timezone.now()).order_by(' -create_time')
+  # })
+    #  return context 

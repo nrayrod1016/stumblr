@@ -9,24 +9,33 @@
 
 {% block content %}
   <!-- Alert Box -->
-<h1 class=" text-center text-2xl font-bold  mt-10 mb-10"> Posts-Index Page</h1>
+<h1 class=" text-center text-white text-2xl font-bold  mt-10 mb-10"> Posts-Index Page</h1>
 
 
-<section class="card-container ml-5 grid grid-rows-3 grid-flow-col gap-10 ">
-  {% for post in posts %}
-    <div class="card flex-wrap">
-     <a href="{% url 'posts_detail' post.id %}">
-      <div class="card-content">
-        <h2 class="card-title">{{ post.title }}</h2>
-        {% if post.create_time > 0 %}
-          <p>Post was created at {{ post.create_time }}.</p>
-        {% else %}
-          <p>A {{ post.content }} .</p>
+<section class="card-container mx-auto px20 ml-5 flex flex-col ">
+<div class="min-h-screen flex items-center justify-center">
+  <div class="containter mx-auto px-20">
+    {% for post in posts %}
+    <div class="bg-white  mb-5 p-8 rounded-lg shadow-lg relative hover:shadow-3xl transition-shadow duration-500">
+    <a href="{% url 'posts_detail' post.id %}">
+      <h1 class="text-2xl  text-gray-800 font-semibold mb-3">{{ post.title }}</h1>
+       {% if post.create_time > 0 %}
+         <p class="text-gray-600 leading-6 tracking-normal">
+        Post was created at {{ post.create_time }}.</p>
+     
+      {% else %}
+       <p class="text-gray-600 leading-6 tracking-normal">{{ post.content }}</p> 
+       <p class="text-gray-600 leading-6 tracking-normal">
+        Post was created at {{ post.create_time }}.</p>
         {% endif %}
-        <p><small>{{ post.author }}</small></p>
+  <button class="py-2 px-4 mt-8 bg-red-500 text-white rounded-md shadow-xl">{{ post.author }}</button>
+      <div>
+        <span class="absolute py-2 px-8 text-sm text-white top-0 right-0 bg-red-500 rounded-md transform translate-x-2 -translate-y-3 shadow-xl">New</span>
       </div>
     </div>
-  {% endfor %}
+      {% endfor %}
+  </div>
+</div>
 </section>
 
 
