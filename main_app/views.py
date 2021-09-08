@@ -9,6 +9,8 @@ from .forms import CommentForm
 # Create your views here.
 from django.contrib.auth.views import LoginView 
 from django.contrib.auth.models import User 
+
+from django.contrib.auth.mixins import LoginRequiredMixin
 def home(request): 
   return render(request, 'home.html')
 
@@ -29,12 +31,13 @@ def posts_detail(request, post_id):
   return render(request, 'posts/detail.html', { 'post': post, 'comment_form': comment_form})
 
 
-class PostCreate(CreateView): 
+class PostCreate(LoginRequiredMixin, CreateView): 
   model = Post
-  fields = ['title', 'author', 'content' ]
+  fields = ['title', 'content' ]
 
   def form_valid(self, form): 
-    form.instance.user = self.request.user
+    form.instance.author = self.request.user
+    print(form.instance.author)
     return super().form_valid(form)
 
 class PostUpdate(UpdateView): 
@@ -49,7 +52,7 @@ class PostDelete(DeleteView):
 def add_comment(request, post_id):
   # post = get_object_or_404(Post)
   # 
-  # comments = Post.comments.filter(active=True) 
+  # comments = Post.comments.filter(active=True)
   new_comment = None 
   form = CommentForm(request.POST)
   if form.is_valid(): 
@@ -97,6 +100,9 @@ def profiles_index(request):
   profiles = Profile.objects.all() 
   return render(request, 'profiles/index.html', { 'profiles': profiles} )
  
+
+
+
 
 
 

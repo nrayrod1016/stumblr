@@ -20,8 +20,11 @@
 <section class="center  bg-gray-100"> 
   <form action="" method='post' class='form-container text-center  content-center h-screen bg-gray-800 '>
     {% csrf_token %}
+    {% comment %} <input type="hidden"  name="author" value="{{ user }}"> {% endcomment %}
   <table class="text-gray-400 m-10 text-center">
+
   {{form.as_table}}
+
       
   </table>
   <button type="submit" class="bg-red-500 hover:bg-red-700 text-white content-center font-bold mt-2 py-2 px-2 rounded focus:outline-none focus:shadow-outline">Submit!</button>

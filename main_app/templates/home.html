@@ -6,7 +6,7 @@
 {% endblock %}
 {% block content %}
   <!-- Alert Box -->
- 
+ {% if user.is_authenticated%}
       <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
         <div class="sm:text-center lg:text-left">
           <h1 class="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl">
@@ -34,18 +34,19 @@
   </div>
   <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
   <section class="logo-container"> 
-    <img class="cat-container " src="{% static 'images/topple.gif' %}"> 
+    {% comment %} <img class="cat-container " src="{% static 'images/topple.gif' %}">  {% endcomment %}
     </section> 
   </div>
 </div>
+{% endif %}
 {% if not user.is_authenticated %}
-<section class="bg-gray-800 content-center ">
+<section class="bg-gray-800 mt-10 content-center ">
   <form action="{% url 'home' %}" method="post" class="login text-center">
     <h1 class="text-2xl text-gray-300">LoginForm</h1>
     {% csrf_token %}
     <div class='m-5 p-5' >{{ form.as_p }}<div> 
     <input class=" m-10 " type="hidden" name="next" value="{{ next }}">
-    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold mt-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline  submit">Login</button>
+    <button type="submit" class="bg-red-400 hover:bg-red-600 text-white font-bold mt-2 py-2 px-4 rounded focus:outline-none focus:shadow-outline  submit">Login</button>
   </form>
 </section>
 {% endif %}
