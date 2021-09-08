@@ -3,7 +3,7 @@
 {% load static %}
 {% load tailwind_tags %}
  <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-gray-800">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -122,7 +122,7 @@
              <a href="{% url 'home' %}" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100">
               Log in
             </a>
-             <a href="{% url 'signup' %}" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100">
+             <a href="{% url 'signup' %}" class="block w-full px-5 py-3 text-center font-medium text-indigo-700 bg-gray-50 hover:bg-gray-100">
               Signup
             </a>
           {% endif %}

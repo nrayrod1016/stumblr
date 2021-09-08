@@ -1,24 +1,28 @@
 {% extends 'base.html' %} {% block content %}
 {% load static %}
-
+<link 
+  rel="stylesheet" 
+  type="text/css" 
+  href="{% static 'css/cat-detail.css' %}"
+/>
 <hr/>
 <section class="bg-gray-800 min-h-screen"> 
 <h1 class="text-center text-white text-xl m-5">POST DETAIL PAGE </h1> 
-<section> 
-<div class="container text-white mx-auto w-full bg-gray-400 bg-opacity-75 rounded-lg p-6 md:flex md:w-full shadow-2xl">
+<section class="text-center"> 
+<div class="container text-white mx-auto w-full bg-gray-400 bg-opacity-75 rounded-lg p-3  shadow-2xl">
   <div class="row">
-    <div class="col-md-8 card mb-4  mt-3 left  top">
-      <div class="card-body text-center lg:m-12">
+    {% comment %} <div class="col-md-8 text-center card mb-4  mt-3 left  top"> {% endcomment %}
+      <div class="card-body text-center lg:m-5">
         <h1 class="text-xl text-center">{% block title %} {{ post.title }} {% endblock title %}</h1>
    
         <p class="card-text mt-3 mb-3 flex-wrap overflow-y-auto lg:overflow-y-auto md:overflow-y-auto sm:overflow-y-auto">{{ post.content | safe }}</p>
         <p class=" ">Written By: {{ post.author }} | </p> 
         <p class=" text-sm"> Created On: {{ post.create_time }}</p>
       </div>
-      <div class="cat-actions text-center mt-5">
-      <a href="{% url 'posts_update' post.id %}" class="py-2 px-4  bg-white hover:bg-red-100 focus:ring-red-500 focus:ring-offset-indigo-200 text-red-500 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg">Edit</a>
+      <div class="cat-actions text-center m-5">
+      <a href="{% url 'posts_update' post.id %}" class="py-2 px-4 mr-2 bg-white hover:bg-red-100 focus:ring-red-500 focus:ring-offset-indigo-200 text-red-500 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg">Edit</a>
       <a href="{% url 'posts_delete' post.id %}" class="py-2 px-4  bg-red-600 hover:bg-red-700 focus:ring-indigo-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg">Delete</a>
-    </div>
+    {% comment %} </div> {% endcomment %}
     </div>
     </section> 
   <div class="feedings-toy-container">
