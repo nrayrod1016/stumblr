@@ -14,6 +14,8 @@
     type="image/png"
     href="{% static 'images/splash.svg' %}"
   >
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css" integrity="sha256-x8PYmLKD83R9T/sYmJn1j3is/chhJdySyhet/JuHnfY=" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   {% tailwind_css %}
   <title>TechSpace</title>
   {% block head %}
@@ -25,111 +27,99 @@
  
       <div>
         <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
-          <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
-            <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
-              <div class="flex items-center justify-between w-full md:w-auto">
-                <a href="/">
-                  <span class="sr-only">Workflow</span>
-                  {% comment %} <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"> {% endcomment %}
-                </a>
-                <div class="-mr-2 flex items-center md:hidden">
-                  <button type="button" class=" rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <!-- Heroicon name: outline/menu -->
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-            {% if user.is_authenticated %}
-            <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
-              {% comment %} <a href="{% url 'profile_detail' profile.id  %}" class="font-medium text-gray-500 hover:text-gray-900">Profile</a> {% endcomment %}
-
-              <a href="/" class="font-medium text-gray-500 hover:text-gray-900">Home</a>
-
-              <a href="/about" class="font-medium text-gray-500 hover:text-gray-900">About</a>
-
-              <a href="{% url 'posts_index' %}" class="font-medium text-gray-500 hover:text-gray-900">Posts</a>
-
-              <a href="{% url 'posts_create' %}" class="font-medium text-gray-500 hover:text-gray-900">Create a Post</a>
-              
-              <a href="{% url 'logout' %}" class="font-medium text-gray-500 hover:text-gray-900">Log Out</a>
-              <a href="{% url 'profiles_index' %}" class="font-medium text-gray-500 hover:text-gray-900">Profiles</a>
-              
-              {% else%}
-              
-              <a href="{% url 'about' %}" class="font-medium text-gray-500 hover:text-gray-900">About</a>
-
-              <a href="{% url 'home' %}" class="font-medium text-indigo-600 hover:text-indigo-500">Login</a>
-              
-              <a href="{% url 'signup' %}" class="font-medium text-indigo-600 hover:text-indigo-500">Signup</a>
-            </div>
-             {% endif %}
-          </nav>
-        </div>
-
-        <!--
-          Mobile menu, show/hide based on menu open state.
-
-          Entering: "duration-150 ease-out"
-            From: "opacity-0 scale-95"
-            To: "opacity-100 scale-100"
-          Leaving: "duration-100 ease-in"
-            From: "opacity-100 scale-100"
-            To: "opacity-0 scale-95"
-        -->
-        <div class="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
-          <div class="rounded-lg shadow-md bg-gray-800 ring-1 ring-black ring-opacity-5 overflow-hidden">
-            <div class="px-5 pt-4 flex items-center justify-between">
-              <div>
-                {% comment %} <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt=""> {% endcomment %}
-              </div>
-              <div class="-mr-2">
-                <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                  <span class="sr-only">Close main menu</span>
-                  <!-- Heroicon name: outline/x -->
-                  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            {% if user.is_authenticated %}
-            <div class="px-2 pt-2 pb-3 space-y-1">
-              {% comment %} <a href="{% url 'profile_detail' profile.id %}" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
-              Profile
-            </a>  {% endcomment %}
-              <a href="/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Home</a>
-
-              <a href="#/about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">About</a>
-
-              <a href="{% url 'posts_index' %}"  class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Posts</a>
-
-              <a href="{% url 'posts_create' %}"  class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Create a Post</a>
-            </div>
-            <a href="{% url 'home' %}" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100">
-              Log in
-            </a>
-              <a href="{% url 'home' %}" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100">
-              Log out
-            </a>
-            </a>
-            
-            {% else %}
-             <a href="#/about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">About</a>
-
-             <a href="{% url 'home' %}" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100">
-              Log in
-            </a>
-             <a href="{% url 'signup' %}" class="block w-full px-5 py-3 text-center font-medium text-indigo-700 bg-gray-50 hover:bg-gray-100">
-              Signup
-            </a>
-          {% endif %}
-          </div>
+         <nav class="flex items-center bg-gray-800 p-3 flex-wrap">
+      <a href="/" class="p-2 mr-4 inline-flex items-center">
+        <svg
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          class="fill-current text-white h-8 w-8 mr-2"
+        >
+          <path
+            d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"
+          />
+        </svg>
+        <span class="text-xl text-red-400 font-bold uppercase tracking-wide"
+          >Stu<span class="text-white">mb</span><span class="text-red-400">lr</span></span
+        >
+      </a>
+      <button
+        class="text-white inline-flex p-3 hover:bg-gray-900 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler"
+        data-target="#navigation"
+      >
+        <i class="material-icons">menu</i>
+      </button>
+      <div
+        class="hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto"
+        id="navigation"
+      >
+      {% if user.is_authenticated %}
+        <div
+          class="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto"
+        >
+          <a
+            href="/"
+            class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
+          >
+            <span>Home</span>
+          </a>
+          <a
+            href="/about"
+            class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
+          >
+            <span>About</span>
+          </a>
+          <a
+            href="{% url 'posts_index' %}"
+            class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
+          >
+            <span>Posts</span>
+          </a>
+          <a
+            href="{% url 'posts_create' %}"
+            class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
+          >
+            <span>Create a Post</span>
+          </a>
+          <a
+            href="{% url 'logout' %}"
+            class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
+          >
+            <span>Logout</span>
+          </a>
+          <a
+            href="{% url 'profiles_index' %}"
+            class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
+          >
+            <span>Profiles</span>
+          </a>
+          {% else %}
+            <a
+            href="/about"
+            class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
+          >
+            <span>About</span>
+          </a>
+          <a
+            href="{% url 'home' %}"
+            class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
+          >
+            <span>Login</span>
+          </a>
+            <a
+            href="{% url 'signup' %}"
+            class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
+          >
+            <span>Signup</span>
+          </a>
+          
         </div>
       </div>
+      {% endif %}
+    </nav>
+
+        </div>
+
+       
 
 
 
@@ -145,4 +135,18 @@
 {% block footer %} 
 
     {% endblock %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script>
+  $(document).ready(function() {
+  $(".nav-toggler").each(function(_, navToggler) {
+    var target = $(navToggler).data("target");
+    $(navToggler).on("click", function() {
+      $(target).animate({
+        height: "toggle"
+      });
+    });
+  });
+});
+
+</script>
 </html>
