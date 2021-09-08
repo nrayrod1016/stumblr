@@ -5,20 +5,19 @@
 <section class="bg-gray-800 min-h-screen"> 
 <h1 class="text-center text-white text-xl m-5">POST DETAIL PAGE </h1> 
 <section> 
-<div class="container text-white mx-auto w-full bg-gray-400 bg-opacity-75 rounded-lg p-6 md:flex w-full shadow-2xl">
+<div class="container text-white mx-auto w-full bg-gray-400 bg-opacity-75 rounded-lg p-6 md:flex md:w-full shadow-2xl">
   <div class="row">
     <div class="col-md-8 card mb-4  mt-3 left  top">
       <div class="card-body text-center lg:m-12">
         <h1 class="text-xl text-center">{% block title %} {{ post.title }} {% endblock title %}</h1>
-        {% comment %} <p class="card-text ">{{ post.create | safe }}</p> {% endcomment %}
-        {% comment %} <p class=" ">Written By: {{ post.author }} | </p>  {% endcomment %}
-        <p class="card-text mt-3 mb-3 flex-wrap">{{ post.content | safe }}</p>
+   
+        <p class="card-text mt-3 mb-3 flex-wrap overflow-y-auto lg:overflow-y-auto md:overflow-y-auto sm:overflow-y-auto">{{ post.content | safe }}</p>
         <p class=" ">Written By: {{ post.author }} | </p> 
         <p class=" text-sm"> Created On: {{ post.create_time }}</p>
       </div>
-      <div class="cat-actions text-center">
-      <a href="{% url 'posts_update' post.id %}" class="btn warn">Edit</a>
-      <a href="{% url 'posts_delete' post.id %}" class="button">Delete</a>
+      <div class="cat-actions text-center mt-5">
+      <a href="{% url 'posts_update' post.id %}" class="py-2 px-4  bg-white hover:bg-red-100 focus:ring-red-500 focus:ring-offset-indigo-200 text-red-500 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg">Edit</a>
+      <a href="{% url 'posts_delete' post.id %}" class="py-2 px-4  bg-red-600 hover:bg-red-700 focus:ring-indigo-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg">Delete</a>
     </div>
     </div>
     </section> 
@@ -84,55 +83,3 @@
 
 
 
-{% comment %} {% extends 'base.html' %}
-{% load static %}
-
-{% block head %}
-<link 
-  rel="stylesheet" 
-  type="text/css" 
-  href="{% static 'css/cat-detail.css' %}"
-/>
-{% endblock %}
-
-{% block content %}
-
-<section class="cat-container text-center mt-10">
-  <div class="cat-img">
-    {% comment %} <img 
-      src="{% static 'images/sk8r-boi-cat.svg' %}" 
-      alt="A skater boy cat"
-    > {% endcomment %}
-  {% comment %} </div>
-  <div class="cat-details">
-    <h1>{{ post.title }}</h1>
-    {% if post.create_time > 0 %}
-      <h2>Post was created at {{ post.create_time }}.</h2>
-    {% else %}
-      <h2>{{ post.content }}</h2>
-    {% endif %}
-    <p>{{ post.author }}</p>
-
-     <p>{{ cat.description }}</p>
-    <section> 
-    <div class="cat-actions">
-      <a href="{% url 'posts_update' post.id %}" class="btn warn">Edit</a>
-      <a href="{% url 'posts_delete' post.id %}" class="btn danger">Delete</a>
-    </div>
-  </section>
-  </div>
-</section>
- {% endcomment %}
-
-{% comment %} 
-{% endblock %} {% endcomment %} 
-{% comment %} <div class="container ml-10">
-  <div class="row">
-    <div class="col-md-8 card mb-4  mt-3 left  top">
-      <div class="card-body">
-        <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
-        <p class=" text-muted">{{ post.author }} | {{ post.create_time }}</p>
-        <p class="card-text ">{{ post.content | safe }}</p>
-      </div>
-    </div>
-    {% comment %} {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %} {% endcomment %}
