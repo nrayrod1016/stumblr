@@ -91,3 +91,19 @@ main > section {
   padding: 2px 4px;
   margin: 5px;
 }
+.header-logo-container {
+  display: none;
+}
+
+.logo-container {
+  max-width: 375px;
+  margin-top: 200px; 
+  margin-left: 120px; 
+  position: fixed; 
+  
+}
+
+.cat-container {
+  width: 60%;
+
+}

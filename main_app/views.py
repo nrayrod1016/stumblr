@@ -92,6 +92,14 @@ def profile_detail(request, profile_id):
 
   return render(request, 'profile_detail.html', {'profile': profile, 'posts': posts})
 
+
+def profiles_index(request):
+  profiles = Profile.objects.all() 
+  return render(request, 'profiles/index.html', { 'profiles': profiles} )
+ 
+
+
+
 # class Profile(DetailView): 
 #    template_name = 'users/profile.html'
 #    queryset = User.objects.all()

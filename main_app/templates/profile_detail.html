@@ -9,9 +9,9 @@
  <!-- Add Profile Card -->
 <hr/>
 
-<section class="mt-10 mb-10"> 
-   <div id="background" class="w-full h-screen  bg-gray-800 pt-48">
-  <div id="card" class="container mx-auto w-full bg-gray-400 bg-opacity-75 rounded-full p-10 md:flex max-w-3xl shadow-xl">
+<section class=" mb-48"> 
+   <div id="background" class="w-full h-screen  pt-14">
+  <div id="card" class="container mx-auto w-full bg-red-400 bg-opacity-75 rounded-full p-10 md:flex max-w-3xl shadow-xl">
     <img class="block rounded-full w-26 h-26 mx-auto -mt-32 md:mt-0 md:flex-1 mx-w-sm md:mr-4 max-w-sm max-h-sm" href="main_app/static/css/nickdev.jpeg" />
     <div class="text-purple-200 text-center md:text-left md:flex-1">
       <h2 class="text-2xl">{{ post.author }}  <h2>
@@ -23,7 +23,7 @@
       <p class="block text-lg sm:text-xl text-justify">
     Bio: Gubergren erat et rebum et accusam, est et erat duo elitr eirmod invidunt ipsum. Amet dolore lorem ipsum sed, aliquyam kasd sit sit dolor invidunt, sea labore sit justo et kasd sadipscing at stet diam, invidunt consetetur diam aliquyam vero dolor. Amet ipsum invidunt consetetur erat et stet sed lorem,.
       </p>  
-      <button class="rounded-lg p-2 mt-3 bg-red-400 "> <a  class="block sm:flex-1 text-xl sm:text-2xl  text-white"
+      <button class="rounded-lg p-2 mt-3 bg-white  "> <a  class="block sm:flex-1 text-xl sm:text-2xl  text-red-400"
           href="mailto:nickrrodriguez@gmail.com">
          Email me!
         </a></button>
@@ -36,7 +36,7 @@
   <!-- Alert Box -->
 {% for post in posts %}
 
-<section class="card-container mx-auto px20 ml-5 flex flex-col  ">
+<section class="card-container mt-20 mx-auto px20 ml-5 flex flex-col  ">
 <div class="min-h-screen flex items-center justify-center ">
   <div class="container overflow-hidden mx-auto px-20">
     {% for post in posts %}
