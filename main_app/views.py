@@ -42,7 +42,7 @@ class PostCreate(LoginRequiredMixin, CreateView):
 
 class PostUpdate(UpdateView): 
   model = Post 
-  fields = ['title', 'author', 'content', ]
+  fields = ['title', 'content' ]
 
 class PostDelete(DeleteView): 
   model = Post 
@@ -104,24 +104,3 @@ def profiles_index(request):
 
 
 
-
-
-# class Profile(DetailView): 
-#    template_name = 'users/profile.html'
-#    queryset = User.objects.all()
-
-
-#    def get_object(self): 
-#      id_ = self.kwargs.get('username')
-#      user = get_object_or_404(User, username=id_)
-#      posts = user.posts.all().filter(order_by('-create_time')) 
-#      return user 
-
-
-  #  def get_context_data(self, *args, **kwargs):
-  #    context = super(Profile,self).get_context_data(*args, **kwargs)
-  #    user = self.get_object()
-  #    context.update({
-  #    'posts' : user.posts.all().filter(create_time__lte=timezone.now()).order_by(' -create_time')
-  # })
-    #  return context 
