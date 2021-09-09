@@ -1,1 +1,1 @@
-web: gunicorn <techspace>.wsgi
+web: gunicorn techspace.wsgi
