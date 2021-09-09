@@ -9,11 +9,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-   <link
-    rel="shortcut icon"
-    type="image/png"
-    href="{% static 'images/splash.svg' %}"
-  >
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css" integrity="sha256-x8PYmLKD83R9T/sYmJn1j3is/chhJdySyhet/JuHnfY=" crossorigin="anonymous" />
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   {% tailwind_css %}
@@ -22,6 +19,7 @@
   {% endblock %}
 </head>
 <body>
+
 <div class="relative bg-gray-800 overflow-hidden">
   <div class="max-w-7xl mx-auto">
  
@@ -29,21 +27,17 @@
         <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
          <nav class="flex items-center bg-gray-800 p-3 flex-wrap">
       <a href="/" class="p-2 mr-4 inline-flex items-center">
-        <svg
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          class="fill-current text-white h-8 w-8 mr-2"
-        >
-          <path
-            d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"
-          />
-        </svg>
+       <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+width="50" height="50"
+viewBox="0 0 172 172"
+style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ecf0f1"><path d="M55.04,13.76c-15.33208,0 -28.06072,11.20951 -30.50312,25.86047c3.354,-4.57864 7.68915,-8.39242 12.72531,-11.08594c4.40664,-4.83664 10.73269,-7.89453 17.77781,-7.89453h82.56v-6.88zM55.04,30.96c-17.06928,0 -30.96,13.88728 -30.96,30.96c0,17.07272 13.89072,30.96 30.96,30.96h56.76c16.12328,0 29.24,13.11672 29.24,29.24c0,16.12328 -13.11672,29.24 -29.24,29.24h-87.72v6.88h87.72c19.9176,0 36.12,-16.2024 36.12,-36.12c0,-19.9176 -16.2024,-36.12 -36.12,-36.12h-56.76c-13.2784,0 -24.08,-10.80504 -24.08,-24.08c0,-13.27496 10.8016,-24.08 24.08,-24.08h82.56v-6.88zM37.8736,61.57735c-0.00344,0.11352 -0.0336,0.22569 -0.0336,0.34265c0,4.0592 1.46985,7.74489 3.82969,10.68953c4.05232,1.95048 8.57839,3.07047 13.37031,3.07047h56.76c8.25256,0 15.70129,3.45177 21.02297,8.96953c5.73448,3.23016 10.66277,7.7278 14.38485,13.12172c-3.32992,-16.50168 -17.93949,-28.97125 -35.40781,-28.97125h-56.76c-6.71832,0 -12.79416,-2.77473 -17.1664,-7.22265zM134.07265,123.81985c-5.3664,6.31584 -13.35273,10.34015 -22.27265,10.34015h-87.72v6.88h87.72c6.0544,0 11.74448,-1.52027 16.75656,-4.16563c3.12352,-3.5432 5.14113,-8.06653 5.51609,-13.05453z"></path></g></g></svg>
+         
         <span class="text-xl text-red-400 font-bold uppercase tracking-wide"
-          >Stu<span class="text-white">mb</span><span class="text-red-400">lr</span></span
+          >tu<span class="text-white">mb</span><span class="text-red-400">lr</span></span
         >
       </a>
       <button
-        class="text-white inline-flex p-3 hover:bg-gray-900 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler"
+        class="text-white inline-flex p-3 hover:bg-gray-900 rounded lg:hidden  ml-auto hover:text-white outline-none nav-toggler"
         data-target="#navigation"
       >
         <i class="material-icons">menu</i>
@@ -90,7 +84,7 @@
             href="{% url 'profiles_index' %}"
             class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
           >
-            <span>Profiles</span>
+            <span><img classs=" h-10" src="https://img.icons8.com/doodle/64/000000/group.png"/></span>
           </a>
           {% else %}
             <a
@@ -120,10 +114,11 @@
         </div>
 
        
-
+<hr/>
 
 
     {% block content %}
+    
     {% endblock %}
 
   {% comment %} </div> 

@@ -17,9 +17,9 @@
   <h1 class="text-center text-white text-xl m-5">Add a Post</h1>
 {% endif %}
 </div>
-<div class="bg-white w-auto shadow rounded hover:shadow-lg transition duration-200 transform hover:-translate-y-2 overflow-hidden my-5 hover:rounded">
+<div class=" w-auto shadow rounded hover:shadow-lg transition duration-200 transform hover:-translate-y-2 overflow-hidden my-5 hover:rounded">
  
-  <div class="w-full bg-red-400 ">
+  <div class="w-full ">
     <h3 class="font-bold bg-gray-800 text-gray-700 w-full text-center  cursor-default text-lg">Post Form</h3>
     <form action="" method='post' class='form-container  bg-gray-800 '>
     {% csrf_token %}
@@ -27,7 +27,7 @@
     <table class="text-gray-400 m-10 text-center">
       {{form.as_table}}
     </table>
-  <button type="submit" class="bg-red-500 ml-96 mr-96 hover:bg-red-700 text-white content-center font-bold mt-2 mb-3 py-2 px-2 rounded focus:outline-none focus:shadow-outline">
+  <button type="submit" class="bg-red-500 hover:bg-red-700 text-white content-center font-bold mt-2 py-2 px-2 rounded focus:outline-none focus:shadow-outline">
     Submit!
   </button>
   </form>

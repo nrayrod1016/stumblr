@@ -15,7 +15,9 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+import environ
+env = environ.Env()
+environ.Env.read_env()
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -25,6 +27,7 @@ SECRET_KEY = 'django-insecure-ht@4j^6t7pk%=vha^3%c@#g7j8ru#c*-#214^7ox)q6cqdv&5k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+DEBUG_PROPAGATE_EXCEPTIONS = True
 ALLOWED_HOSTS = []
 
 
@@ -127,6 +130,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+SIGN_UP_REDIRECT_URL = 'home'
 
 LOGIN_REDIRECT_URL = 'home'
 
@@ -144,3 +148,11 @@ TAILWIND_APP_NAME = 'techspace'
 INTERNAL_IPS = [
     "127.0.0.1:8000",
 ]
+
+
+
+# Other settings above
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
