@@ -3,7 +3,7 @@
 <link 
   rel="stylesheet" 
   type="text/css" 
-  href="{% static 'css/cat-detail.css' %}"
+  href="{% static 'css/post-detail.css' %}"
 />
 
 <section class="bg-gray-800 min-h-0 mb-20"> 
@@ -41,13 +41,13 @@
         {% else %}
         <h3 class="text-center text-white">Talk about it</h3>
         <form 
-        class="text-center  p-10 break-words  "
+        class="form-container text-center  p-10 break-words  "
         method="post"
-        action={% url 'add_comment' post.id %}
+        action="{% url 'add_comment' post.id %}"
         >
-        <div class="text-gray-400 grid-cols-3 gap-5"> 
-          {{ comment_form.as_p }}
-          </div>
+       
+          {{ comment_form.as_table }}
+        
           {% csrf_token %}
           <button type="submit" class="bg-red-500 hover:bg-red-700 text-white content-center font-bold mt-2 py-2 px-2 rounded focus:outline-none focus:shadow-outline">Submit</button>
         </form>
@@ -70,10 +70,12 @@
        <p class="text-gray-600 leading-6 tracking-normal">
         Comment was created at {{ comment.create_time }}.</p>
   <button class="py-2 px-4 mt-8 bg-red-500 text-white rounded-md shadow-xl">{{ comment.author }}</button>
+  
+      {% if new_comment %}
       <div>
         <span class="absolute py-2 px-8 text-sm text-white top-0 right-0 bg-red-500 rounded-md transform translate-x-2 -translate-y-3 shadow-xl">New</span>
       </div>
-      
+      {% endif %}
     </div>
   </div>
 </div>
