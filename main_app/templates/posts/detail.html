@@ -6,10 +6,10 @@
   href="{% static 'css/cat-detail.css' %}"
 />
 
-<section class="bg-gray-800 min-h-screen"> 
+<section class="bg-gray-800 min-h-0 mb-20"> 
 <h1 class="text-center text-white text-xl m-5">POST DETAIL PAGE </h1> 
 <section class="text-center"> 
-<div class="container text-gray-400 font-semibold mx-auto w-max bg-white  rounded-lg p-3  shadow-2xl">
+<div class="container text-gray-800 font-semibold mx-auto w-max bg-white  rounded-lg p-3 shadow-2xl  lg:mr-3.5">
   <div class="row">
     {% comment %} <div class="col-md-8 text-center card mb-4  mt-3 left  top"> {% endcomment %}
       <div class="card-body text-center lg:m-5">
@@ -28,24 +28,24 @@
   <div class="feedings-toy-container">
     <section class="feedings text-center mt-5">
 
-    <h3 class="text-center text-white text-xl"> Comments Section{{ comment.count }} </h3>
+
 
 
 </div> 
-<div class="col-md-8 card mb-4  mt-3 ">
+<div class="col-md-8 card mb-3  mt-2 ">
       <div class="card-body">
         {% if new_comment %}
         <div class="alert alert-success" role="alert">
           Your comment is awaiting moderation
         </div>
         {% else %}
-        <h3 class="text-center text-white">Leave a comment</h3>
+        <h3 class="text-center text-white">Talk about it</h3>
         <form 
-        class="text-center break-words  "
+        class="text-center  p-10 break-words  "
         method="post"
         action={% url 'add_comment' post.id %}
         >
-        <div class="text-gray-400 "> 
+        <div class="text-gray-400 grid-cols-3 gap-5"> 
           {{ comment_form.as_p }}
           </div>
           {% csrf_token %}
