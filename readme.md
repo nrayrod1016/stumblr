@@ -59,11 +59,11 @@ Nick is a full stack web developer from the NYC area, with a passion for food, c
 
 ## Screenshots
 
-![Screenshot 1](static/images/screenshots/StumblrHome.png)
-![Screenshot 2](static/images/screenshots/StumblrAbout.png)
-![Screenshot 3](static/images/screenshots/StumblrPosts.png)
-![Screenshot 4](static/images/screenshots/StumblrPostDetail.png)
-![Screenshot 5](static/images/screenshots/StumblrCreate.png)
-![Screenshot 6](static/images/screenshots/StumblrProfiles.png)
+![Screenshot 1](./main_app/static/images/screenshots/StumblrHome.png)
+![Screenshot 2](./main_app/static/images/screenshots/StumblrAbout.png)
+![Screenshot 3](./main_app/static/images/screenshots/StumblrCreate.png)
+![Screenshot 4](./main_app/static/images/screenshots/StumblrPosts.png)
+![Screenshot 5](./main_app/static/images/screenshots/StumblrPostDetail.png)
+![Screenshot 6](./main_app/static/images/screenshots/StumblrProfiles.png)
 
 [Back to Top](#top)
