@@ -23,7 +23,7 @@ Stumblr is a place to express yourself, discover yourself, and bond over the stu
   
 ## This app is hosted at: 
 * [GitHub Repo](https://github.com/nrayrod1016/techspace)
-* [Heroku Hosted Site](https://mammoth-ecommerce.herokuapp.com/)
+* [Heroku Hosted Site](https://stumblrspace.herokuapp.com/)
 
 
 ## Ice Box Goals
@@ -59,11 +59,11 @@ Nick is a full stack web developer from the NYC area, with a passion for food, c
 
 ## Screenshots
 
-![Screenshot 1](public/screenshots/HomePage.png)
-![Screenshot 2](public/screenshots/ShopIndex.png)
-![Screenshot 3](public/screenshots/ProductIndex.png)
-![Screenshot 4](public/screenshots/Form.png)
-![Screenshot 5](public/screenshots/Profilepage.png)
-![Screenshot 6](public/screenshots/ResponsiveView.png)
+![Screenshot 1](images/screenshots/StumblrHome.png)
+![Screenshot 2](images/screenshots/StumblrAbout.png)
+![Screenshot 3](images/screenshots/StumblrPosts.png)
+![Screenshot 4](images/screenshots/StumblrPostDetail.png)
+![Screenshot 5](images/screenshots/StumblrCreate.png)
+![Screenshot 6](images/screenshots/StumblrProfiles.png)
 
 [Back to Top](#top)
