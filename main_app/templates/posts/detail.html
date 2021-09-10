@@ -9,9 +9,8 @@
 <section class="bg-gray-800 min-h-0 mb-20"> 
 <h1 class="text-center text-white text-xl m-5">POST DETAIL PAGE </h1> 
 <section class="text-center"> 
-<div class="container text-gray-800 font-semibold mx-auto w-max bg-white  rounded-lg p-3 shadow-2xl  lg:mr-3.5">
+<div class="container text-gray-800 font-semibold mx-auto w-max bg-white  rounded-lg p-3 shadow-2xl  ">
   <div class="row">
-    {% comment %} <div class="col-md-8 text-center card mb-4  mt-3 left  top"> {% endcomment %}
       <div class="card-body text-center lg:m-5">
         <h1 class="text-xl text-center">{% block title %} {{ post.title }} {% endblock title %}</h1>
    
@@ -59,17 +58,17 @@
 
 
 {% for comment in post.comment_set.all %}
-<div class="bg-gray-800">
-<section class="card-container mx-auto px20 ml-5 flex flex-col ">
+<div class="bg-gray-800 ">
+<section class="card-container mx-auto px20 ml-5 flex flex-col  ">
 <div class="comments flex flex-wrap items-center justify-center">
-  <div class="container mx-auto  px-20">
+  <div class="container mx-auto  px-20 transform  hover:scale-105 transition duration-300 ">
 
-    <div class=" mb-5 p-8 bg-white rounded-lg shadow-lg relative hover:shadow-3xl transition-shadow duration-500">
+    <div class=" mb-5 p-8 bg-white rounded-lg shadow-lg relative hover:shadow-3xl transition-shadow duration-600">
       <h1 class="text-2xl text-gray-800 font-semibold mb-3">{{ comment.title }}</h1>
        <p class="text-gray-600 leading-6 tracking-normal flex flex-wrap overflow-ellipsis">{{ comment.content | linebreaks }}</p> 
        <p class="text-gray-600 leading-6 tracking-normal">
         Comment was created at {{ comment.create_time }}.</p>
-  <button class="py-2 px-4 mt-8 bg-red-500 text-white rounded-md shadow-xl">{{ comment.author }}</button>
+  <button class="py-2 px-4 mt-8 bg-red-500 text-white rounded-md shadow-xl">{{ comment.user }}</button>
   
       {% if new_comment %}
       <div>

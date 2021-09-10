@@ -15,7 +15,7 @@
 <section class="card-container mx-auto px20 ml-5 flex flex-col ">
 <div class="min-h-screen flex items-center justify-center">
   <div class="container mx-auto px-20">
-    {% for post in posts %}
+    {% for post in page_obj %}
     <div class="bg-white  mb-5 p-8 rounded-lg shadow-2xl relative transform  hover:scale-105 transition duration-300 col-span-12 md:mx-10 ">
     <a href="{% url 'posts_detail' post.id %}">
       <h1 class="text-2xl  text-gray-800 font-semibold mb-3">{{ post.title }}</h1>
@@ -40,6 +40,22 @@
 </div>
 </section>
 
+
+{% comment %} pagination nation {% endcomment %}
+<div class="w-full focus:ring-offset-red-200 font-bold text-white focus:ring-indigo-500  flex justify-center pt-4 items-center">
+    Showing page {{page_obj.number}} of {{page_obj.paginator.num_pages}}
+  </div>
+
+  <div id="pagination" class="w-full flex justify-center pt-1 items-center">
+      {% if page_obj.has_previous %}
+        <p {% if page_obj.number == 1 %} class="leading-relaxed cursor-pointer mx-2 text-sm text-white hover:text-blue-600" {% endif %}><a class="page-link" href="?page=1">&laquo;</a></li>
+        <p class="leading-relaxed cursor-pointer mx-2 text-sm text-white hover:text-blue-600"> <a class=" py-2 px-4  bg-red-600 hover:bg-red-700 focus:ring-indigo-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+      {% endif %}
+
+      {% if page_obj.has_next %}
+        <p class="leading-relaxed cursor-pointer mx-2 text-sm text-white hover:text-blue-600"> <a class="page-link py-2 px-4 mr-2 bg-white hover:bg-red-100 focus:ring-red-500 focus:ring-offset-indigo-200 text-red-500 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+        <p class="leading-relaxed cursor-pointer mx-2 text-sm hover:text-blue-600"> <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a></li>
+      {% endif %}
 
 
 {% endblock %}

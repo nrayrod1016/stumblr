@@ -38,7 +38,7 @@ class Comment(models.Model):
   content = models.TextField()
   create_time = models.DateTimeField(auto_now_add=True)
   active = models.BooleanField(default=False)
-
+ 
 
   post = models.ForeignKey(Post, on_delete=models.CASCADE)
 

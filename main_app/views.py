@@ -9,7 +9,7 @@ from .forms import CommentForm
 # Create your views here.
 from django.contrib.auth.views import LoginView 
 from django.contrib.auth.models import User 
-
+from django.core.paginator import Paginator
 from django.contrib.auth.mixins import LoginRequiredMixin
 def home(request): 
   return render(request, 'home.html')
@@ -20,8 +20,12 @@ def about(request):
 
 def posts_index(request):
   posts = Post.objects.all() 
-  return render(request, 'posts/index.html', { 'posts': posts} )
+  
+  paginator = Paginator(posts, 5) #split up in pages.   3per page
+  page_number = request.GET.get('page')
+  page_obj = Paginator.get_page(paginator, page_number)
  
+  return render(request, 'posts/index.html', { 'posts': posts, 'page_obj': page_obj } )
 
 
 def posts_detail(request, post_id): 
