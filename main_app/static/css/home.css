@@ -4,7 +4,7 @@
 .login input {
   font-size: var(--font-l);
   padding: 2px 4px;
-  margin: 5px;
+  margin: 12px;
 }
 .header-logo-container {
   display: none;
@@ -36,4 +36,30 @@ body {
   .top-navbar {
     display: inline-flex !important;
   }
+}
+
+/* .form-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+} */
+
+
+
+
+
+
+
+.btn {
+  align-self: flex-end;
+  margin-right: 40px;
+}
+
+label { 
+  color: white;
+  text-align: center; 
+  font-size: 20px;
+  margin-bottom: 2px;
+  font-weight: bold;  
+  font-family: inherit;
 }
