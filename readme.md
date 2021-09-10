@@ -39,7 +39,7 @@ Stumblr is a place to express yourself, discover yourself, and bond over the stu
 
 ## Special Thanks
 
-* Instructors (Ben Manley, Jurgen Stevens, and Brian Krabec) and peers from the General Assembly SEIR-6-21 cohort for collaboration in developing this app.
+* Instructor (Ben Manley) and peers from the General Assembly SEIR-6-21 cohort for collaboration in developing this app.
 
 * The code for this website was written with frequent reference to a number of 3rd party resources:
   * [CSS-Tricks](https://css-tricks.com/)
@@ -47,7 +47,7 @@ Stumblr is a place to express yourself, discover yourself, and bond over the stu
   * [MDN Web Docs](https://developer.mozilla.org/en-US/)
   * [Stack Overflow](https://stackoverflow.com/)
 
-## About the Developers
+## About the Developer
 
 ### Nick Rodriguez
 
