@@ -7,31 +7,25 @@
  {% comment %}profile section  {% endcomment %}
 
  <!-- Add Profile Card -->
-<hr/>
 
-<section class=" mb-48"> 
-   <div id="background" class="w-full h-screen  pt-14">
-  <div id="card" class="container mx-auto w-full bg-red-400 bg-opacity-75 rounded-full p-10 md:flex max-w-3xl shadow-xl">
-    <img class="block rounded-full w-26 h-26 mx-auto -mt-32 md:mt-0 md:flex-1 mx-w-sm md:mr-4 max-w-sm max-h-sm" href="main_app/static/css/nickdev.jpeg" />
-    <div class="text-purple-200 text-center md:text-left md:flex-1">
-      <h2 class="text-2xl">{{ post.author }}  <h2>
-      <span class="block text-xl sm:text-3xl ">Full-Stack Software Engineer 💻</span>
-      <div class="sm:flex md:block">
-     
-        <span class="block sm:flex-1 text-xl sm:text-2xl sm:pl-1 md:pl-0">(000) 000-0000</span>
-      </div>
-      <p class="block text-lg sm:text-xl text-justify">
-    Bio: Gubergren erat et rebum et accusam, est et erat duo elitr eirmod invidunt ipsum. Amet dolore lorem ipsum sed, aliquyam kasd sit sit dolor invidunt, sea labore sit justo et kasd sadipscing at stet diam, invidunt consetetur diam aliquyam vero dolor. Amet ipsum invidunt consetetur erat et stet sed lorem,.
-      </p>  
-      <button class="rounded-lg p-2 mt-3 bg-white  "> <a  class="block sm:flex-1 text-xl sm:text-2xl  text-red-400"
-          href="mailto:nickrrodriguez@gmail.com">
-         Email me!
-        </a></button>
-    </div>
+
+<section class="mt-3 ml-60 xs:mr-40  sm:mr-40 lg:ml-96 bg-gray-800 shadow-2xl relative transform hover:shadow2xl hover:scale-105 transition duration-300 col-span-12 xl:shadow-sm"> 
+ <div class="max-w-md  py-4 px-8 bg-white shadow-lg rounded-lg my-20">
+  
+  <div>
+    <h2 class="text-gray-800 text-3xl font-semibold">{{ profile.user }}</h2>
+    <p class="mt-2 text-gray-600">
+    {{profile.posts.count}}
+    </p>
+  </div>
+  
+  <div class="flex justify-end mt-4">
+    <a href="#" class="text-xl font-medium text-red-400">Posts Below</a>
+
   </div>
 </div>
-
-</section> 
+</div>
+</section>  
 
   <!-- Alert Box -->
 {% for post in posts %}
@@ -60,8 +54,7 @@
 </section>
 
 
-{% comment %} <h1 class="text-white">{{ post.author }}</h1>
-  <p class="text-white ">{{ post.content }}</p> {% endcomment %}
+
 {% endfor %} 
 
 {% endblock %}

@@ -74,6 +74,12 @@ style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-w
           >
             <span>Create a Post</span>
           </a>
+            {% comment %} <a
+            href="{% url 'profile_detail' profile.id %}"
+            class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
+          >
+            <span>Myprofile</span>
+          </a> {% endcomment %}
           <a
             href="{% url 'logout' %}"
             class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-gray-400 items-center justify-center hover:bg-gray-900 hover:text-white"
